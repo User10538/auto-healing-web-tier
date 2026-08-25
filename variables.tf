@@ -83,3 +83,15 @@ variable "max_size" {
     error_message = "max_size must be at least 2."
   }
 }
+
+variable "health_path" {
+  description = "HTTP path used by the load balancer health check."
+  type        = string
+  default     = "/"
+}
+
+variable "extra_tags" {
+  description = "Optional tags merged into every supported AWS resource."
+  type        = map(string)
+  default     = {}
+}
