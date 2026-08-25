@@ -49,3 +49,37 @@ variable "instance_type" {
   type        = string
   default     = "t4g.nano"
 }
+
+
+variable "min_size" {
+  description = "Minimum Auto Scaling Group capacity."
+  type        = number
+  default     = 2
+
+  validation {
+    condition     = var.min_size >= 2
+    error_message = "min_size must be at least 2 to preserve N+1 capacity."
+  }
+}
+
+variable "desired_size" {
+  description = "Desired Auto Scaling Group capacity."
+  type        = number
+  default     = 2
+
+  validation {
+    condition     = var.desired_size >= 2
+    error_message = "desired_size must be at least 2 to place traffic on multiple instances."
+  }
+}
+
+variable "max_size" {
+  description = "Maximum Auto Scaling Group capacity."
+  type        = number
+  default     = 3
+
+  validation {
+    condition     = var.max_size >= 2
+    error_message = "max_size must be at least 2."
+  }
+}
