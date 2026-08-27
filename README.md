@@ -47,6 +47,7 @@ Destroy when finished:
 
 ```bash
 terraform destroy
+```
 
 # Cost Estimate
 
